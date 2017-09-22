@@ -13,6 +13,7 @@
 		8E9CE7E01F756A1100E1E8F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E9CE7DF1F756A1100E1E8F8 /* Assets.xcassets */; };
 		8E9CE7E31F756A1100E1E8F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E9CE7E11F756A1100E1E8F8 /* LaunchScreen.storyboard */; };
 		8E9CE7EB1F7572DE00E1E8F8 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CE7EA1F7572DE00E1E8F8 /* CategoryCell.swift */; };
+		8EA30CBD1F7585A800051F36 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA30CBC1F7585A800051F36 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8E9CE7E21F756A1100E1E8F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E9CE7E41F756A1100E1E8F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E9CE7EA1F7572DE00E1E8F8 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		8EA30CBC1F7585A800051F36 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				8E9CE7D81F756A1100E1E8F8 /* AppDelegate.swift */,
 				8E9CE7DA1F756A1100E1E8F8 /* ViewController.swift */,
 				8E9CE7EA1F7572DE00E1E8F8 /* CategoryCell.swift */,
+				8EA30CBC1F7585A800051F36 /* Models.swift */,
 				8E9CE7DC1F756A1100E1E8F8 /* Main.storyboard */,
 				8E9CE7DF1F756A1100E1E8F8 /* Assets.xcassets */,
 				8E9CE7E11F756A1100E1E8F8 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 				8E9CE7DB1F756A1100E1E8F8 /* ViewController.swift in Sources */,
 				8E9CE7D91F756A1100E1E8F8 /* AppDelegate.swift in Sources */,
 				8E9CE7EB1F7572DE00E1E8F8 /* CategoryCell.swift in Sources */,
+				8EA30CBD1F7585A800051F36 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
