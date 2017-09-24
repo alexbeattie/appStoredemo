@@ -8,56 +8,65 @@
 
 import UIKit
 
-class AppCategory: NSObject {
+struct FeaturedApps: Decodable {
     
-    var name: String?
-    var apps: [App]?
+    var bannerCategory: AppCategory?
+    var categories: [AppCategory]?
     
-    static func sampleAppCategories() -> [AppCategory] {
-        
-        let bestNewAppsCategory = AppCategory()
-        bestNewAppsCategory.name = "Best New Apps"
-        
-        var apps = [App]()
-        
-        //logic
-        let frozenApp = App()
-        frozenApp.name = "Disney Built it:  Frozen"
-        frozenApp.imageName = "frozen"
-        frozenApp.category = "Entertainment"
-        frozenApp.price = NSNumber(value: 3.99)
-        apps.append(frozenApp)
-        
-        bestNewAppsCategory.apps = apps
-        
+}
+
+struct AppCategory: Decodable {
     
-        /// new category
-        let bestNewGamesCategory = AppCategory()
-        bestNewGamesCategory.name = "Best New Games"
+    let name: String?
+    let apps: [App]?
+    let type: String?
+    
+    static func fetchFeaturedApps(_ completionHandler: @escaping (FeaturedApps) -> ()) {
         
-        var bestNewGamesApps = [App]()
+        let urlString = "https://api.letsbuildthatapp.com/appstore/featured"
         
-        let telepaintApp = App()
-        telepaintApp.name = "Telepaint"
-        telepaintApp.category = "Games"
-        telepaintApp.imageName = "telepaint"
-        telepaintApp.price = NSNumber(value: 4.99)
-        bestNewGamesApps.append(telepaintApp)
-        
-        bestNewGamesCategory.apps = bestNewGamesApps
-        bestNewAppsCategory.apps = apps
-        
-        return [bestNewAppsCategory, bestNewGamesCategory]
+        URLSession.shared.dataTask(with: URL(string: urlString)!, completionHandler: { (data, response, error) -> Void in
+            
+            guard let data = data else { return }
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let featuredApps = try decoder.decode(FeaturedApps.self, from: data)
+                print(featuredApps)
+                
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionHandler(featuredApps)
+                })
+            
+            } catch let err {
+                print(err)
+            }
+            
+        }) .resume()
         
     }
 }
 
-class App: NSObject {
+struct App: Decodable {
     
-    var id: NSNumber?
-    var name: String?
-    var category: String?
-    var imageName: String?
-    var price: NSNumber?
+    let Id: Int?
+    var Name: String?
+    var Category: String?
+    var ImageName: String?
+    var Price: Float?
     
+//    var Screenshots: [String]?
+//    var description: String?
+//    var appInformation: [AppInformation]?
 }
+
+//struct AppInformation: Decodable {
+//    let Name: String
+//    let Value: String
+//}
+

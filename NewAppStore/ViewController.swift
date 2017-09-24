@@ -18,8 +18,12 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        appCategories = AppCategory.sampleAppCategories()
+        AppCategory.fetchFeaturedApps{ (featuredApps) -> () in
+//            self.featuredApps = featuredApps
+            self.appCategories = featuredApps.categories
+                self.collectionView?.reloadData()
+
+        }
         
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
